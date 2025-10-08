@@ -1,0 +1,110 @@
+@use "sass:map";
+
+/** Display **/
+$display-types: none, block, inline, inline-block, flex, inline-flex, grid, inline-grid, table, table-cell, table-row;
+@each $display-name in $display-types {
+    .d-#{$display-name} {
+        display: $display-name;
+    }
+}
+
+$opacity-values: 0 10 20 30 40 50 60 70 80 90 100;
+@each $opacity in $opacity-values {
+    .opacity-#{$opacity} {
+        opacity: #{$opacity} + "%";
+    }
+}
+
+/** Position **/
+$positions: static, relative, absolute, fixed, sticky;
+@each $position in $positions {
+    .position-#{$position} {
+        position: $position;
+    }
+}
+$directions: top right bottom left;
+@each $direction in $directions {
+    .#{$direction}-0 {
+        #{$direction}: 0;
+    }
+}
+
+/** Flex **/
+$flex-values: (
+	'0-0': 0 0 auto,
+	'1-0': 1 0 0%,
+	'0-1': 0 1 auto,
+	'1-1': 1 1 0%,
+    '0-0-0': 0 0 0%,
+    '0-0-100': 0 0 100%,
+    '0-1-0': 0 1 0%,
+    '0-1-100': 0 1 100%,
+    '1-0-0': 1 0 0%,
+    '1-0-100': 1 0 100%,
+    '1-1-0': 1 1 0%,
+    '1-1-100': 1 1 100%,
+    'fill': 1 1 auto,
+);
+@each $name, $value in $flex-values {
+	.flex-#{$name} {
+		flex: $value;
+  	}
+}
+
+$flex-directions: row, column;
+@each $direction in $flex-directions {
+    .flex-#{$direction} {
+        flex-direction: $direction;
+    }
+    .flex-#{$direction}-reverse {
+        flex-direction: #{$direction}-reverse;
+    }
+}
+
+$flex-justifications: (
+  	start: flex-start,
+  	end: flex-end,
+	center: center,
+  	space-between: space-between,
+  	space-around: space-around,
+  	space-evenly: space-evenly,
+);
+@each $name, $value in $flex-justifications {
+    .justify-#{$name} {
+        justify-content: $value;
+    }
+}
+$flex-alignments: (
+  	start: flex-start,
+  	end: flex-end,
+  	baseline: baseline,
+  	stretch: stretch,
+	center: center,
+);
+@each $name, $value in $flex-alignments {
+    .align-#{$name} {
+        align-items: $value;
+    }
+    .align-self-#{$name} {
+        align-self: $value;
+    }
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+@each $autosize in grow, shrink {
+    .flex-#{$autosize}-0 {
+        flex-#{$autosize}: 0;
+    }
+    .flex-#{$autosize}-1 {
+        flex-#{$autosize}: 1;
+    }
+}

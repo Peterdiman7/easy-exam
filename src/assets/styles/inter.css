@@ -1,0 +1,31 @@
+/**
+ * @license MIT
+ * 
+ * Font Family: Inter
+ * Designed by: Rasmus Andersson
+ * Source: https://rsms.me/inter/
+ * 
+ * © 2025 Devalex Consulting ltd.
+ */
+
+@font-face {
+    font-family: 'Inter-Light';
+    src: url('../fonts/Inter-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Inter-Regular';
+    src: url('../fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Inter-Medium';
+    src: url('../fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+  }

@@ -1,0 +1,147 @@
+body {
+    font-size: 16px;
+    color: var(--theme-white);
+    background-color: #141519;
+    button {
+        color: var(--theme-white);
+    }
+}
+
+@for $heading-size from 1 through 6 {
+    h#{$heading-size} {
+        @extend .font-family--clash-regular;
+        font-size: map-get($heading-sizes, #{$heading-size});
+        line-height: 1;
+        color: var(--theme-white);
+    }
+}
+
+$bg-color: #121212;
+$bg-color--lighten-1: #212121;
+$bg-color--darken-1: #0f0f0f;
+$bg-color--darken-2: #0d0d0d;
+.app-wrapper {
+    height: 100dvh;
+    max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--theme-background);
+}
+.page-layout {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    &-thumb {
+        display: block;
+        background-color: var(--theme-gray);
+        &:hover {
+            background-color: var(--theme-gray-dark2);
+        }
+    }
+}
+@supports not selector(::-webkit-scrollbar) {
+    * {
+        scrollbar-color: var(--theme-gray) transparent;
+        scrollbar-width: auto;
+    }
+}
+::selection, ::-moz-selection, ::-webkit-selection {
+  background: var(--theme-green);
+  color: #ffffff;
+}
+
+.main {
+    --deprecated: "";
+    grid-area: main;
+    height: calc(100dvh - 175px);
+    max-height: calc(100dvh - 175px);
+    display: flex;
+    flex-direction: column;
+}
+
+.disabled {
+    color: #616161 !important;
+    cursor: default;
+}
+.font-family {
+    &--inter-light {
+        font-family: "Inter-Light", sans-serif;
+        font-variation-settings: 'wght' 300;
+    }
+    &--inter-regular {
+        font-family: "Inter-Regular", sans-serif;
+        font-variation-settings: 'wght' 400;
+    }
+    &--inter-medium {
+        font-family: "Inter-Medium", sans-serif;
+        font-variation-settings: 'wght' 500;
+    }
+    &--clash {
+        --deprecated: "WARNING: Use the 4 classes bellow";
+        font-family: "ClashGrotesk-Regular", sans-serif;
+    }
+    &--clash-light {
+        font-family: "ClashGrotesk-Variable", sans-serif;
+        font-variation-settings: 'wght' 300;
+    }
+    &--clash-regular {
+        font-family: "ClashGrotesk-Variable", sans-serif;
+        font-variation-settings: 'wght' 400;
+    }
+    &--clash-medium {
+        font-family: "ClashGrotesk-Variable", sans-serif;
+        font-variation-settings: 'wght' 500;
+    }
+    &--clash-bold {
+        font-family: "ClashGrotesk-Variable", sans-serif;
+        font-variation-settings: 'wght' 700;
+    }
+}
+
+$theme-colors: background, black, white, gray-dark2, gray, gray-light1, red, green, gold, gold-light, background-lighter1, background-lighter2, background-darker1, background-darker2;
+.text {
+    @each $color in $theme-colors {
+        &--theme-#{"" + $color} {
+            color: var(--theme-#{$color})
+        }
+    }
+}
+@each $color in $theme-colors {
+    .icon-color--#{"" + $color} {
+        path {
+          fill: var(--theme-#{$color});
+          stroke: var(--theme-#{$color});
+        }
+    }
+    .icon-fill--#{"" + $color} {
+        path {
+          fill: var(--theme-#{$color});
+        }
+    }
+    .icon-stroke--#{"" + $color} {
+        path {
+          stroke: var(--theme-#{$color});
+        }
+    }
+}
+
+.Vue-Toastification__toast--default.my-custom-toast-class {
+    padding: 0;
+    border-radius: unset;
+    background: unset;
+}
+
+.error {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: var(--theme-white);
+    background-color: var(--theme-red);
+    margin-bottom: 12px;
+    @extend .font-family--clash-regular;
+}

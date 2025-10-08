@@ -1,0 +1,34 @@
+@each $font-number, $font-size in $font-sizes {
+    .fs-#{$font-number} {
+        font-size: $font-size !important;
+    }
+}
+
+@each $size in 0, 25, 50, 75, 100 {
+    .mw-#{$size} {
+        max-width: #{$size} + "%";
+    }
+    .mh-#{$size} {
+        max-height: #{$size} + "%";
+    }
+}
+
+$overflow-values: auto, hidden, visible;
+@each $overflow in $overflow-values {
+    .overflow-#{$overflow} {
+        overflow: $overflow;
+    }
+    .overflow-x-#{$overflow} {
+        overflow-x: $overflow;
+    }
+    .overflow-y-#{$overflow} {
+        overflow-y: $overflow;
+    }
+}
+
+$cursors: auto, default, grab, grabbing, help, move, none, not-allowed, pointer, progress, text, wait;
+@each $cursor in $cursors {
+    .cursor-#{$cursor} {
+        cursor: $cursor;
+    }
+}

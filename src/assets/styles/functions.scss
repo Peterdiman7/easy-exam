@@ -1,0 +1,11 @@
+@use 'sass:list';
+@use "sass:meta";
+
+@function directParent() {
+  $last: list.nth(&, -1);
+  @while meta.type-of($last) == "list" {
+    $last: list.nth($last, -1);
+  }
+
+  @return $last;
+}

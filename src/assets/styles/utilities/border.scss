@@ -1,0 +1,63 @@
+$border-widths: (
+    0: 0,
+    thin: thin,
+    sm: 1px,
+    md: 2px,
+    lg: 4px,
+    xl: 8px,
+);
+
+@each $name, $value in $border-widths {
+    .border-#{$name} {
+        border-width: $value;
+    }
+    .border-t-#{$name} {
+        border-top-width: $value;
+    }
+    .border-b-#{$name} {
+        border-bottom-width: $value;
+    }
+    .border-s-#{$name} {
+        border-inline-start-width: $value;
+    }
+    .border-e-#{$name} {
+        border-inline-end-width: $value;
+    }
+}
+
+$border-styles: dashed, dotted, double, solid;
+@each $border-style in $border-styles {
+    .border-#{$border-style} {
+        border-style: $border-style;
+    }
+}
+
+$opacities: 0, 25, 50, 75, 100;
+@each $opacity in $opacities {
+    .border-opacity-#{$opacity} {
+        --border-opacity: calc($opacity / 100);
+    }
+}
+
+.border {
+    border: thin solid rgba(var(–v-border-color), var(--border-opacity));
+}
+
+$border-radii: (
+    0: 0,
+    sm: 2px,
+    lg: 8px,
+    xl: 24px,
+    pill: 9999px,
+    circle: 50%,
+    shaped: 24px 0,
+);
+
+.rounded {
+    border-radius: 4px;
+}
+@each $name, $value in $border-radii {
+    .rounded-#{$name} {
+        border-radius: $value;
+    }
+}

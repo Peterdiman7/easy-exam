@@ -1,0 +1,14 @@
+@use 'sass:color';
+
+@import "./inter.css";
+@import "./clash-grotesk.css";
+
+@import "./reset";
+@import "./variables";
+@import "./functions";
+@import "./utilities/border";
+@import "./utilities/displayPosition";
+@import "./utilities/spacing";
+@import "./utilities/other";
+@import "./global";
+@import "./components";
